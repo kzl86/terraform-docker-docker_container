@@ -1,7 +1,8 @@
 locals {
     mounts = var.mounts != null ? { 
-        for mount in var.mounts :
-            lookup(mount, "target", null) => {
+        for index, mount in var.mounts :
+            index => {
+                "target"    = lookup(mount, "target", null)
                 "type"      = lookup(mount, "type", null)
                 "source"    = lookup(mount, "source", null)
                 "read_only" = lookup(mount, "read_only", null)
@@ -9,8 +10,9 @@ locals {
     } : {}
 
     ports = var.ports != null ? { 
-        for port in var.ports :
-            lookup(port, "internal", null) => {
+        for index, port in var.ports :
+            index => {
+                "internal" = lookup(port, "internal", null)
                 "external" = lookup(port, "external", null)
                 "protocol" = lookup(port, "protocol", null)
             }
@@ -37,7 +39,7 @@ resource "docker_container" "this" {
         for_each = local.mounts
 
         content {
-            target    = mounts.key
+            target    = lookup(mounts.value, "target", null)
             type      = lookup(mounts.value, "type", null)
             source    = lookup(mounts.value, "source", null)
             read_only = lookup(mounts.value, "read_only", false)
@@ -48,7 +50,7 @@ resource "docker_container" "this" {
         for_each = local.ports
 
         content {
-            internal = ports.key
+            internal = lookup(ports.value, "internal", null)
             external = lookup(ports.value, "external", null)
             protocol = lookup(ports.value, "protocol", null)
         }
