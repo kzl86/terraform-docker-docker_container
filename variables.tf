@@ -37,3 +37,9 @@ variable "ports" {
     type        = list
     default     = null
 }
+
+variable "network_mode" {
+    description = "Network mode of the container."
+    type        = string
+    default     = "default"
+}

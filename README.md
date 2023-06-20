@@ -31,6 +31,7 @@ No modules.
 | <a name="input_labels"></a> [labels](#input\_labels) | User-defined key/value metadata | `map` | `{}` | no |
 | <a name="input_mounts"></a> [mounts](#input\_mounts) | Specification for mounts to be added to containers created as part of the service. | `list` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the container. | `string` | n/a | yes |
+| <a name="input_network_mode"></a> [network\_mode](#input\_network\_mode) | Network mode of the container. | `string` | `"default"` | no |
 | <a name="input_ports"></a> [ports](#input\_ports) | Publish a container's port(s) to the host. | `list` | `null` | no |
 | <a name="input_restart"></a> [restart](#input\_restart) | The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to no. | `string` | `"no"` | no |
 

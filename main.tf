@@ -20,9 +20,10 @@ locals {
 }
 
 resource "docker_container" "this" {
-    name     = var.name
-    image    = var.image
-    restart  = var.restart
+    name         = var.name
+    image        = var.image
+    restart      = var.restart
+    network_mode = var.network_mode
 
     env = var.env
 
