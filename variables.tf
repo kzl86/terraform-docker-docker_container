@@ -43,3 +43,15 @@ variable "network_mode" {
     type        = string
     default     = "default"
 }
+
+variable "networks_advanced" {
+    description = "The networks the container is attached to."
+    type        = list
+    default     = null
+}
+
+variable "entrypoint" {
+    description = "The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable."
+    type        = list(string)
+    default     = []
+}

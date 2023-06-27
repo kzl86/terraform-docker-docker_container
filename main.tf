@@ -17,6 +17,14 @@ locals {
                 "protocol" = lookup(port, "protocol", null)
             }
     } : {}
+
+    networks_advanced = var.networks_advanced != null ? { 
+        for index, network in var.networks_advanced :
+            index => {
+                "name"    = lookup(network, "name", null)
+                "aliases" = lookup(network, "aliases", null)
+            }
+    } : {}
 }
 
 resource "docker_container" "this" {
@@ -56,5 +64,16 @@ resource "docker_container" "this" {
             protocol = lookup(ports.value, "protocol", null)
         }
     }
+
+    dynamic "networks_advanced" {
+        for_each = local.networks_advanced
+
+        content {
+            name    = lookup(networks_advanced.value, "name", null)
+            aliases = lookup(networks_advanced.value, "aliases", null)
+        }
+    }
+
+    entrypoint = var.entrypoint
 
 }
