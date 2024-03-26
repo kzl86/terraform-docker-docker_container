@@ -3,14 +3,14 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.2.6 |
-| <a name="requirement_docker"></a> [docker](#requirement\_docker) | 2.19.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.7.5 |
+| <a name="requirement_docker"></a> [docker](#requirement\_docker) | 3.0.2 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_docker"></a> [docker](#provider\_docker) | 2.19.0 |
+| <a name="provider_docker"></a> [docker](#provider\_docker) | 3.0.2 |
 
 ## Modules
 
@@ -20,7 +20,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [docker_container.this](https://registry.terraform.io/providers/kreuzwerker/docker/2.19.0/docs/resources/container) | resource |
+| [docker_container.this](https://registry.terraform.io/providers/kreuzwerker/docker/3.0.2/docs/resources/container) | resource |
 
 ## Inputs
 
