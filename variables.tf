@@ -53,5 +53,17 @@ variable "networks_advanced" {
 variable "entrypoint" {
   description = "The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable."
   type        = list(string)
-  default     = []
+  default     = null
+}
+
+variable "log_opts" {
+  description = "Key/value pairs to use as options for the logging driver."
+  type        = map(string)
+  default     = {}
+}
+
+variable "ulimits" {
+  description = "Ulimit options to add."
+  type        = list(any)
+  default     = null
 }

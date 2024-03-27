@@ -25,6 +25,15 @@ locals {
       "aliases" = lookup(network, "aliases", null)
     }
   } : {}
+
+  ulimits = var.ulimits != null ? {
+    for index, ulimit in var.ulimits :
+    index => {
+      "hard" = lookup(ulimit, "hard", null)
+      "name" = lookup(ulimit, "name", null)
+      "soft" = lookup(ulimit, "soft", null)
+    }
+  } : {}
 }
 
 resource "docker_container" "this" {
@@ -32,8 +41,9 @@ resource "docker_container" "this" {
   image        = var.image
   restart      = var.restart
   network_mode = var.network_mode
-
-  env = var.env
+  env          = var.env
+  log_opts     = var.log_opts
+  entrypoint   = var.entrypoint
 
   dynamic "labels" {
     for_each = var.labels
@@ -65,6 +75,16 @@ resource "docker_container" "this" {
     }
   }
 
+  dynamic "ulimit" {
+    for_each = local.ulimits
+
+    content {
+      hard = lookup(ulimit.value, "hard", null)
+      name = lookup(ulimit.value, "name", null)
+      soft = lookup(ulimit.value, "soft", null)
+    }
+  }
+
   dynamic "networks_advanced" {
     for_each = local.networks_advanced
 
@@ -73,7 +93,4 @@ resource "docker_container" "this" {
       aliases = lookup(networks_advanced.value, "aliases", null)
     }
   }
-
-  entrypoint = var.entrypoint
-
 }
