@@ -5,6 +5,68 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.0.0] - 2024-09-03
+
+### Added
+
+- variable "attach"
+- variable "capabilities"
+- variable "cgroupns_mode"
+- variable "command"
+- variable "container_read_refresh_timeout_milliseconds"
+- variable "cpu_set"
+- variable "cpu_shares"
+- variable "destroy_grace_seconds"
+- variable "devices"
+- variable "dns"
+- variable "dns_opts"
+- variable "dns_search"
+- variable "domainname"
+- variable "gpus"
+- variable "group_add"
+- variable "healthcheck"
+- variable "host"
+- variable "hostname"
+- variable "init"
+- variable "ipc_mode"
+- variable "log_driver"
+- variable "logs"
+- variable "max_retry_count"
+- variable "memory"
+- variable "memory_swap"
+- variable "must_run"
+- variable "pid_mode"
+- variable "privileged"
+- variable "publish_all_ports"
+- variable "read_only"
+- variable "remove_volumes"
+- variable "rm"
+- variable "runtime"
+- variable "security_opts"
+- variable "shm_size"
+- variable "start"
+- variable "stdin_open"
+- variable "stop_signal"
+- variable "stop_timeout"
+- variable "storage_opts"
+- variable "sysctls"
+- variable "tmpfs"
+- variable "tty"
+- variable "uploads"
+- variable "user"
+- variable "userns_mode"
+- variable "volumes"
+- variable "wait"
+- variable "wait_timeout"
+- variable "working_dir"
+- examples directory with nginx example
+
+### Changed
+
+- The "mounts" variable type change to support all fields.
+- IP field add to "ports"
+- Fields "ipv4_address" and "ipv6_address" add to "networks_advanced"
+
 ## [v2.1.0] - 2024-03-27
 
 ### Added
