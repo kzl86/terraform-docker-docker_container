@@ -8,7 +8,9 @@ variable "nginx_mount_source" {
 }
 
 module "nginx_container" {
-    source  = "git::https://github.com/kzl86/terraform-docker-container.git?ref=v3.0.0"
+    source  = "kzl86/docker_container/docker"
+    version = "v3.0.1"
+    
     name    = "nginx-example"
     image   = docker_image.nginx.image_id
     restart = "unless-stopped"
