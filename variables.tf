@@ -294,7 +294,7 @@ variable "must_run" {
 variable "network_mode" {
   description = "Network mode of the container."
   type        = string
-  default     = "default"
+  default     = "bridge"
 }
 
 variable "networks_advanced" {

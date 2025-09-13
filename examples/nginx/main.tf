@@ -9,7 +9,7 @@ variable "nginx_mount_source" {
 
 module "nginx_container" {
     source  = "kzl86/docker_container/docker"
-    version = "v3.0.1"
+    version = "v3.0.2"
     
     name    = "nginx-example"
     image   = docker_image.nginx.image_id
